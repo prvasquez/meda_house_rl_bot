@@ -7,21 +7,14 @@ from routines import *
 
 # This file is for strategy
 
-class Center_Seeker(GoslingAgent):
+class Boost_Seeker(GoslingAgent):
     def run(self):
-        # This bot will be a bully and only try to boom other players
-        # when they are on their own half
+        # this bot grabs boost
+        target = self.boost.location - self.me.location
+        local_target = self.me.local(target)
 
-        # Establishing where the center of the court is
-        center = Vector3(0,0,0)
+        defaultPD(self, local_target)
+        defaultThrottle(self, 2300)
 
-        relative_target = center - self.me.location
-        local_target = self.me.local(relative_target)
-        if local_target.magnitude() == 0:
-            print("Car at center")
-            deafaultThrottle(self, 0)
-        else:
-            defaultPD(self, local_target)
-            defaultThrottle(self, 2300)
 
 
