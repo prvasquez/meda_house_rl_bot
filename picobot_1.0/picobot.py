@@ -15,4 +15,3 @@ class Bully(GoslingAgent):
         defaultPD(self, local_target)
         defaultThrottle(self, 2300)
 
-    def check_half(self):
